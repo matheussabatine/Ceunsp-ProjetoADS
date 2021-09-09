@@ -6,8 +6,8 @@ cursor = conector.cursor()
 # TABELA Marca
 cursor.execute("""
 CREATE TABLE Tamanho (
-        Marca VARCHAR (3) NOT NULL PRIMARY KEY,
-        Tamanho INTEGER NOT NULL 
+        Tamanho VARCHAR (3) NOT NULL PRIMARY KEY
+        
                
 
 );

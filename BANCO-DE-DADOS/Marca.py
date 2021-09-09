@@ -7,7 +7,7 @@ cursor = conector.cursor()
 cursor.execute("""
 CREATE TABLE marca (
         Marca VARCHAR (30) NOT NULL PRIMARY KEY,
-        Fabricante INTEGER NOT NULL 
+        Fabricante VARCHAR (60) NOT NULL 
                
 
 );

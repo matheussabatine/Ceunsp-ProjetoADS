@@ -5,15 +5,15 @@ cursor = conector.cursor()
 
 # TABELA Acessorios
 cursor.execute("""
-CREATE TABLE acessorio (
+CREATE TABLE acessorios (
         Cd_acessorio INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-        Nome VARCHAR NOT NULL,
-        Cd_publicotipo TEXT,
-        Marca VARCHAR,
-        Vlr_unitac FLOAT NOT NULL,
-        Estoqueac FLOAT NOT NULL,
-        FOREIGN KEY (Cd_publicotipo) REFERENCES acessorio(Cd_publicotipo),
-        FOREIGN KEY (Marca) REFERENCES acessorio(Marca)
+        Acestipo TEXT NOT NULL,
+        Publico TEXT NOT NULL,
+        Marca TEXT NOT NULL,
+        Vlr_unitac SMALMONEY,
+        Estoqueac INTERGER NOT NULL,
+        FOREIGN KEY (Publico) REFERENCES publico(Cd_publicotipo),
+        FOREIGN KEY (Marca) REFERENCES marca(Marca)
 
 );
 """)

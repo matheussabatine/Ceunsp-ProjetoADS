@@ -3,14 +3,12 @@ import sqlite3
 conector = sqlite3.connect("vendas1.db")
 cursor = conector.cursor()
 
-#TABELA produto
+#TABELA Estoque
 cursor.execute("""
-CREATE TABLE produto (
+CREATE TABLE estoque (
         Pd_codigo INTEGER NOT NULL PRIMARY KEY,
         Nome TEXT NOT NULL,
-        Vd_valor FLOAT NOT NULL,
-        Desconto FLOAT NOT NULL,
-        Total FLOAT NOT NULL,
+        Vd_valor SMALLMONEY,
         Saldo INTEGER,
         Pd_qtd INTEGER,
         Gr_nome INTEGER NOT NULL,

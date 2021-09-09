@@ -7,9 +7,8 @@ cursor = conector.cursor()
 cursor.execute("""
 CREATE TABLE grupo (
         Cd_grupo INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-        Gr_nome INTERGER (30) NOT NULL,
-        FOREIGN KEY (Gr_nome) REFERENCES acessorio(Nome)
-        FOREIGN KEY (Gr_nome) REFERENCES roupas(Roupatipo)
+        Gr_nome INTERGER (30) NOT NULL
+       
         
 
 );

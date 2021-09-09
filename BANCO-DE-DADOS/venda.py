@@ -15,11 +15,10 @@ CREATE TABLE Venda (
         Roupatipo TEXT NOT NULL,
         Tamanho INTEGER,
         Cor TEXT NOT NULL,
-
         Criado_em DATA,
         FOREIGN KEY (Cl_codigo) REFERENCES grupo(Gr_nome),
-        FOREIGN KEY (Fn_codigo) REFERENCES grupo(Gr_nome)
-               
+        FOREIGN KEY (Tamanho) REFERENCES tamanho(Tamanho)
+                        
 
 );
 """)
