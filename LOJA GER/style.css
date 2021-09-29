@@ -11,7 +11,7 @@
 
 /*cor de fundo*/
 body{
-    background-color: rgb(183, 202, 181);
+    background-color: rgb(155, 134, 104);
 }
 
 /*botão para guardar sidebar*/
@@ -109,14 +109,14 @@ nav ul li a{
 
 /*hover= quando o mouse passa por cima do texto do item*/
 nav ul li a:hover{
-    color: rgb(14, 187, 129);
+    color: rgb(175, 187, 14);
 }
 
 /*active= quando um item está selecionado*/
 nav ul li.active a{
-    color: rgb(14, 187, 129);
+    color: rgb(175, 187, 14);
     background: #313131;
-    border-left-color: rgb(14, 187, 129);
+    border-left-color: rgb(175, 187, 14);
 }
 
 /*tipo uma pasta na lista de items*/
@@ -153,9 +153,9 @@ nav ul li.active ul li a{
     background: #1b1b1b;
     border-left-color: transparent;
 }
-
+/*cor de quando passa por cima(itens da pasta)*/
 nav ul ul li a:hover{
-    color: rgb(14, 187, 129)!important;
+    color: rgb(175, 187, 14)!important;
 }
 
 /*span se refere aos ícones*/
@@ -177,7 +177,7 @@ nav ul li a span.rotate{
 
 /*container personalizado para os produtos*/
 .AreaProdutos{
-    background-color: rgba(0, 92, 49, 0.322);
+    background-color: rgba(73, 54, 26, 0.466);
     margin-left: 310px;
     padding-left: 10px;
     margin-right: 10px;
