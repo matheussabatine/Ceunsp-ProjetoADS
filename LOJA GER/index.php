@@ -369,7 +369,7 @@
         </div>
 
         <div class="modal-footer">
-          <p>#botao de quantidade</p>
+          <p>#botao de quantidade</p><p>
           <button type="button" class="btn btn-primary">+ Comprar Estoque</button>
         </div>
 

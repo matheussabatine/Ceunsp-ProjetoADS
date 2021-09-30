@@ -82,7 +82,6 @@
             <option selected>Nenhum</option>
             <option value="1">Maior Preço</option>
             <option value="2">Menor Preço</option>
-            <option value="3">blabla</option>
           </select>
         </div>
 
