@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,13 +20,21 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="card">
-                    <form onsubmit="event.preventDefault()" class="box">
+                    <form action="login.php" class="box" method="POST">
                         <h1>Login</h1>
+                        <?php
+                        if(isset($_SESSION['erro'])):
+                        ?>
+                        <button type="button" class="btn btn-danger">LOGIN INVÁLIDO</button>
+                        <?php
+                        endif;
+                        unset($_SESSION['erro']);
+                        ?>
                         <p class="text-muted"></p> 
-                        <input type="email" name="" placeholder="Email"> 
-                        <input type="password" name="" placeholder="Senha"> 
-                        <a class="forgot text-muted" href="#">Não Tenho Cadastro</a> 
-                        <input type="submit" name="" value="Entrar" href="#">
+                        <input type="email" name="email" placeholder="Email" required> 
+                        <input type="password" name="senha" placeholder="Senha" required> 
+                        <a class="forgot text-muted" href="../CADASTRO/index.php">Não Tenho Cadastro</a> 
+                        <input type="submit" name="" value="Entrar">
                     </form>
                 </div>
             </div>

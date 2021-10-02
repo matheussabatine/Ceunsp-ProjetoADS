@@ -315,8 +315,8 @@
         </div>
 
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger">Desconectar Conta</button>
-          <button type="button" class="btn btn-primary">Entrar/Trocar Conta</button>
+          <a href="#"><button type="button" class="btn btn-danger">Desconectar Conta</button></a>
+          <a href="../LOGIN/logar.php"><button type="button" class="btn btn-primary">Entrar/Trocar Conta</button></a>
         </div>
 
       </div>
