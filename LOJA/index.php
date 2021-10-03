@@ -184,7 +184,7 @@
 
     <div class="col">
       <div class="card">
-        <img src="mar.jpg" class="img-thumbnail" alt="...">
+        <img src="../PLACEHOLDER/mar.jpg" class="img-thumbnail" alt="...">
         <div class="card-body">
           <h5 class="card-title">R$ 34,99</h5>
         </div>
@@ -200,7 +200,7 @@
 
     <div class="col">
       <div class="card">
-        <img src="mar.jpg" class="img-thumbnail" alt="...">
+        <img src="../PLACEHOLDER/mar.jpg" class="img-thumbnail" alt="...">
         <div class="card-body">
           <h5 class="card-title">R$ 34,99</h5>
         </div>
@@ -216,7 +216,7 @@
 
     <div class="col">
       <div class="card">
-        <img src="mar.jpg" class="img-thumbnail" alt="...">
+        <img src="../PLACEHOLDER/mar.jpg" class="img-thumbnail" alt="...">
         <div class="card-body">
           <h5 class="card-title">R$ 34,99</h5>
         </div>
@@ -232,7 +232,7 @@
 
     <div class="col">
       <div class="card">
-        <img src="mar.jpg" class="img-thumbnail" alt="...">
+        <img src="../PLACEHOLDER/mar.jpg" class="img-thumbnail" alt="...">
         <div class="card-body">
           <h5 class="card-title">R$ 34,99</h5>
         </div>
@@ -248,7 +248,7 @@
 
     <div class="col">
       <div class="card">
-        <img src="mar.jpg" class="img-thumbnail" alt="...">
+        <img src="../PLACEHOLDER/mar.jpg" class="img-thumbnail" alt="...">
         <div class="card-body">
           <h5 class="card-title">R$ 34,99</h5>
         </div>
@@ -264,7 +264,7 @@
 
     <div class="col">
       <div class="card">
-        <img src="mar.jpg" class="img-thumbnail" alt="...">
+        <img src="../PLACEHOLDER/mar.jpg" class="img-thumbnail" alt="...">
         <div class="card-body">
           <h5 class="card-title">R$ 34,99</h5>
         </div>
@@ -337,7 +337,7 @@
         <div class="modal-body">
 
           <!--FOTO DO PRODUTO-->
-          <img src="mar.jpg" class="rounded mx-auto d-block" alt="...">
+          <img src="../PLACEHOLDER/mar.jpg" class="rounded mx-auto d-block" alt="...">
           <br>
 
           <!--TABELA DADOS DO PRODUTO-->

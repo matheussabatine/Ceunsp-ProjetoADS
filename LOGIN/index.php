@@ -34,7 +34,7 @@ session_start();
                         <input type="email" name="email" placeholder="Email" required> 
                         <input type="password" name="senha" placeholder="Senha" required> 
                         <a class="forgot text-muted" href="../CADASTRO/index.php">Não Tenho Cadastro</a> 
-                        <input type="submit" name="" value="Entrar">
+                        <input type="submit" value="Entrar">
                     </form>
                 </div>
             </div>
