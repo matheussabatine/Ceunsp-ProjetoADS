@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -306,17 +307,18 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row">Matheus Sabatine Lima</th>
-                <td>matheus@email.com</td>
-                <td>bairro lindo rua são hugo Nª111</td>
+                <?php if(isset($_SESSION['email'])): ?>
+                <th><?php echo $_SESSION['nome']; ?></th>
+                <td><?php echo $_SESSION['email']; ?></td>
+                <td><?php echo $_SESSION['endereco']; endif;?></td>
               </tr>
             </tbody>
           </table>
         </div>
 
         <div class="modal-footer">
-          <a href="#"><button type="button" class="btn btn-danger">Desconectar Conta</button></a>
-          <a href="../LOGIN/logar.php"><button type="button" class="btn btn-primary">Entrar/Trocar Conta</button></a>
+          <a href="../LOGIN/desconectar.php"><button type="button" class="btn btn-danger">Desconectar Conta</button></a>
+          <a href="../LOGIN/trocar.php"><button type="button" class="btn btn-primary">Entrar/Trocar Conta</button></a>
         </div>
 
       </div>

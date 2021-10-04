@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="pt-br">
   <head>
@@ -11,6 +14,20 @@
     <!--CSS PROGRAMA-->
     <link rel="stylesheet" href="cadastro.css">
 
+    <!--SCRIPT PARA VALIDAR SENHAS-->
+    <script>
+      function senhas(){
+        var senha = formname.senha.value;
+        var confirm_senha = formname.confirm_senha.value;
+
+        if (senha != confirm_senha){
+          alert ('Senhas São Diferentes');
+          formname.senha.focus();
+          return false;
+        }
+      }
+    </script>
+
     <title>Cadastro de novo cliente</title>
   </head>
   <body>
@@ -19,24 +36,24 @@
 
       <div class="title">CADASTRO DE CLIENTE</div>
 
-      <form method="POST" class="row g-3 needs-validation">
+      <form action="cadastrar.php" name="formname" method="POST" class="row g-3 needs-validation">
 
         <!--1 LINHA-->
         <div class="col-md-8">
           <label for="nome" class="form-label">Nome Completo</label>
-          <input type="text" class="form-control" id="nome" autofocus required>
+          <input name="nome" type="text" class="form-control" id="nome" autofocus required>
         </div>
 
         <div class="col-md-4">
           <label for="sexo-masc" class="form-label">Sexo</label>
 
         <div class="custom-control custom-radio">
-            <input type="radio" id="sexo-masc" name="sexo" class="custom-control-input" checked>
+            <input value="Masculino" type="radio" id="sexo-masc" name="sexo" class="custom-control-input" checked>
             <label class="custom-control-label" for="sexo-masc">Masculino</label>
         </div>
         
         <div class="custom-control custom-radio">
-            <input type="radio" id="sexo-femi" name="sexo" class="custom-control-input">
+            <input value="Feminino" type="radio" id="sexo-femi" name="sexo" class="custom-control-input">
             <label class="custom-control-label" for="sexo-femi">Feminino</label>
         </div>
 
@@ -47,7 +64,7 @@
         <div class="col-md-3">
 
           <label for="estados" class="form-label">Estado</label>
-          <select class="form-select" id="estados" required>
+          <select name="estados" class="form-select" id="estados" required>
             <option selected disabled value="">Selecionar</option>
             <option value="AC">Acre</option>
 	          <option value="AL">Alagoas</option>
@@ -82,13 +99,13 @@
         <div class="col-md-3">
 
           <label for="cidade" class="form-label">Cidade</label>
-          <input type="text" class="form-control" id="cidade" required>
+          <input name="cidade" type="text" class="form-control" id="cidade" required>
     
         </div>
         <div class="col-md-6">
 
           <label for="endereco" class="form-label">Endereço</label>
-          <input type="text" class="form-control" id="endereco" placeholder="(BAIRRO/RUA/NÚMERO)" required>
+          <input name="endereco" type="text" class="form-control" id="endereco" placeholder="(BAIRRO/RUA/NÚMERO)" required>
 
         </div>
 
@@ -96,32 +113,56 @@
 
         <div class="col-8">
           <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control" id="email" required>
+          <input name="email" type="email" class="form-control" id="email" required>
         </div>
         <div class="col-4">
           <label for="celular" class="form-label">Celular</label>
-          <input type="tel" class="form-control" id="celular" pattern="[0-9]{11}" placeholder="DDD+9 dígitos" required>
+          <input name="celular" type="tel" class="form-control" id="celular" pattern="[0-9]{11}" placeholder="DDD+9 dígitos" required>
         </div>
 
         <!--4 LINHA-->
 
         <div class="col-md-5">
             <label for="senha" class="form-label">Senha</label>
-            <input type="password" class="form-control" id="senha" required>
+            <input name="senha" type="password" class="form-control" id="senha" placeholder="APENAS NÚMEROS" required>
         </div>
         
         <div class="col-md-5">
           <label for="senha-confirmar" class="form-label">Confirmar Senha</label>
-          <input type="password" class="form-control" id="senha-confirmar" required>
+          <input name="confirm_senha" type="password" class="form-control" id="senha-confirmar" required>
       </div>
         
 
         <!--5 LINHA-->
 
         <div class="col-12 text-center">
-          <button class="btn btn-success btn-lg" type="submit">Validar</button>
+          <button class="btn btn-success btn-lg" type="submit" onclick="return senhas()">Validar</button>
         </div>
       </form>
+
+      <br>
+
+      <div class="d-grid gap-2">
+        
+        <?php
+        if(isset($_SESSION['email_existe'])):
+        ?>
+        <button class="btn btn-primary" type="button">CADASTRO JÁ EXISTENTE</button>
+        <?php
+        endif;
+        unset($_SESSION['email_existe']);
+        ?>
+
+        <?php
+        if(isset($_SESSION['status_cadastro'])):
+        ?>
+        <button class="btn btn-success" type="button">CADASTRADO COM SUCESSO<a style="color: blue;"href="../LOGIN/index.php"> RETORNAR</a></button>
+        <?php
+        endif;
+        unset($_SESSION['status_cadastro']);
+        ?>
+
+      </div>
       
     </div>
 
