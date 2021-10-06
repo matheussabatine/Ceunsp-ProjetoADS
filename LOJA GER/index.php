@@ -71,35 +71,41 @@ include('../LOGIN GER/verificar_login.php');
 
     <!--INÍCIO da vitrine-->
 
-    <!--texto que mostrará o público[MASCULINO/FEMININO] e a moda[INFANTIL/ADULTO/ETC] escolhidas-->
-    <h1 style="text-align: center;">Selecione uma categoria</h1>
-
     <!--filtros de busca ROUPAS-->
+
+    <div style="text-align: center;" id="categorias">
+
+      <h1>Selecione uma categoria</h1>
+
+      <div style="background-color: white;" class="btn-group btn-group-lg" role="group" aria-label="Basic radio toggle button group">
+        <input type="radio" class="btn-check" name="btnradio_roupa" id="btnradio_camisas" autocomplete="off" checked>
+        <label class="btn btn-outline-dark" for="btnradio_camisas">CAMISAS</label>
+
+        <input type="radio" class="btn-check" name="btnradio_roupa" id="btnradio_blusas" autocomplete="off">
+        <label class="btn btn-outline-dark" for="btnradio_blusas">BLUSAS</label>
+
+        <input type="radio" class="btn-check" name="btnradio_roupa" id="btnradio_calcas" autocomplete="off">
+        <label class="btn btn-outline-dark" for="btnradio_calcas">CALÇAS</label>
+
+        <input type="radio" class="btn-check" name="btnradio_roupa" id="btnradio_shorts" autocomplete="off">
+        <label class="btn btn-outline-dark" for="btnradio_shorts">SHORTS</label>
+      </div>
+
+    </div>
 
     <div class="container mt-5">
       
       <div class="row justify-content-end">
 
-        <div class="col-md-2 text-center">
+        <div class="col-md-3 text-center">
           <h4>Filtro</h4>
           <select class="form-select" aria-label="Default select example">
-            <option selected>Nenhum</option>
-            <option value="1">Maior Preço</option>
-            <option value="2">Menor Preço</option>
+            <option value="1" selected>Menor Preço</option>
+            <option value="2">Maior Preço</option>
           </select>
         </div>
 
-        <div class="col-md-2 text-center">
-          <h4>Categorias</h4>
-          <select class="form-select" aria-label="Default select example">
-            <option selected>Todas</option>
-            <option value="1">Calça</option>
-            <option value="2">Camisa</option>
-            <option value="3">Blusa</option>
-          </select>
-        </div>
-
-        <div class="col-md-2 text-center">
+        <div class="col-md-3 text-center">
           <h4>Marcas</h4>
           <select class="form-select" aria-label="Default select example">
             <option selected>Todas</option>
@@ -109,7 +115,7 @@ include('../LOGIN GER/verificar_login.php');
           </select>
         </div>
 
-        <div class="col-md-2 text-center">
+        <div class="col-md-3 text-center">
           <h4>Tamanhos</h4>
           <select class="form-select" aria-label="Default select example">
             <option selected>Todos</option>
@@ -132,28 +138,36 @@ include('../LOGIN GER/verificar_login.php');
 
     <!--filtros de busca ACESSÓRIOS-->
 
-    <!--    
+    <!-- 
+    <div style="text-align: center;" id="categorias">
+
+      <h1>Selecione uma categoria</h1>
+
+      <div style="background-color: white;" class="btn-group btn-group-lg" role="group" aria-label="Basic radio toggle button group">
+        <input type="radio" class="btn-check" name="btnradio_acessorios" id="btnradio_aneis" autocomplete="off" checked>
+        <label class="btn btn-outline-dark" for="btnradio_aneis">ANÉIS</label>
+
+        <input type="radio" class="btn-check" name="btnradio_acessorios" id="btnradio_pulseiras" autocomplete="off">
+        <label class="btn btn-outline-dark" for="btnradio_pulseiras">PULSEIRAS</label>
+
+        <input type="radio" class="btn-check" name="btnradio_acessorios" id="btnradio_colares" autocomplete="off">
+        <label class="btn btn-outline-dark" for="btnradio_colares">COLARES</label>
+      </div>
+
+    </div>
+
+      
     <div class="container mt-5">
       
-      <div class="row justify-content-end">
+      <div class="row justify-content-center">
+
+        <div class="col-md-3 text-center"></div>
 
         <div class="col-md-3 text-center">
           <h4>Filtro</h4>
           <select class="form-select" aria-label="Default select example">
-            <option selected>Nenhum</option>
-            <option value="1">Maior Preço</option>
-            <option value="2">Menor Preço</option>
-            <option value="3">blabla</option>
-          </select>
-        </div>
-
-        <div class="col-md-3 text-center">
-          <h4>Categorias</h4>
-          <select class="form-select" aria-label="Default select example">
-            <option selected>Todas</option>
-            <option value="1">Pulseira</option>
-            <option value="2">Anél</option>
-            <option value="3">Colar</option>
+            <option value="1" selected>Menor Preço</option>
+            <option value="2">Maior Preço</option>
           </select>
         </div>
 
@@ -178,7 +192,9 @@ include('../LOGIN GER/verificar_login.php');
 
     </div>
     -->
+    
 
+  
   <!--Layout dos produtos-->
 
 
