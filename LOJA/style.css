@@ -188,3 +188,30 @@ nav ul li a span.rotate{
     padding-bottom: 10px;
 }
 
+/*botao de incremento*/
+
+html body div#categorias.filtros div.quantity{
+    display: flex;
+    justify-content: center;
+}
+
+html body div#categorias.filtros div.quantity button{
+    width: 45px;
+    height: 45px;
+    border: 1px solid rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+    border-radius: 0;
+    background: #fff;
+}
+
+html body div#categorias.filtros div.quantity input{
+    border: none;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    text-align: center;
+    width: 100px;
+    font-size: 20px;
+    color: #000;
+    font-weight: 300;
+}
+
