@@ -19,6 +19,33 @@
      <!-- Boxicons CSS -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="style.css">
+    <style>
+      div.quantity{
+    display: flex;
+    justify-content: center;
+}
+
+
+div.quantity button{
+    width: 45px;
+    height: 45px;
+    border: 1px solid rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+    border-radius: 0;
+    background: #fff;
+}
+
+div.quantity input{
+    border: none;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    text-align: center;
+    width: 100px;
+    font-size: 20px;
+    color: #000;
+    font-weight: 300;
+}
+    </style>
 </head>
 <body>
 
@@ -386,7 +413,12 @@
         </div>
 
         <div class="modal-footer">
-          <p>#botao de quantidade</p><p>TOTAL R$ </p>
+          <div class="quantity">
+            <button class="btn minus-btn disabled" type="button">-</button>
+            <input type="text" id="quantity" value="1">
+            <button class="btn plus-btn" type="button">+</button>
+          </div>
+<p>TOTAL R$ </p>
           <button type="button" class="btn btn-primary">+ Adicionar ao Carrinho</button>
         </div>
 
@@ -477,9 +509,68 @@
     </div>
   </div>
 
+
+    <!-- Script para botão de incremento -->
+
+    <script>
+      //botao de incremento 
+        //setting default attribute to disabled of minus button
+        document.querySelector(".minus-btn").setAttribute("disabled", "disabled");
+        //taking value to increment decrement input value
+        var valueCount
+        //estoque
+        var estoque
+
+        //plus button
+        document.querySelector(".plus-btn").addEventListener("click", function()
+        {
+            //getting value of input
+            valueCount = document.getElementById("quantity").value;
+            // definindo um estoque
+            estoque = 13
+
+            //input value increment by 1
+            valueCount++;
+
+            //setting increment input value
+            document.getElementById("quantity").value = valueCount
+
+            if (valueCount > 1){
+                document.querySelector(".minus-btn").removeAttribute("disabled");
+                document.querySelector(".minus-btn").classList.remove("disabled")
+            }
+            // fazer condição if que impede que o contador ultrapasse o valor disponível no estoque
+            if (valueCount == estoque){
+                document.querySelector(".plus-btn").setAttribute("disabled", "disabled")
+            }
+        })
+
+        //minus button
+        document.querySelector(".minus-btn").addEventListener("click", function()
+        {
+            //getting value of input
+            valueCount = document.getElementById("quantity").value;
+
+            //input value decrement by 1
+            valueCount--;
+
+            //setting increment input value
+            document.getElementById("quantity").value = valueCount
+
+            if (valueCount == 1){
+                document.querySelector(".minus-btn").setAttribute("disabled", "disabled")
+            }
+            // condição que libera button plus quando é possível adcionar estoque
+            if (valueCount < estoque){
+                document.querySelector(".plus-btn").removeAttribute("disabled");
+                document.querySelector(".plus-btn").classList.remove("disabled")
+            }
+        })
+    </script>
+
     <!-- Caminho para arquivo JavaScript -->
     <script src="comando.js"></script>
-    
+
     <!-- LINK Option 1: Bootstrap Bundle with Popper--> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     
