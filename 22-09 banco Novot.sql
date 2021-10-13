@@ -1,6 +1,3 @@
-create database vendasSql
-default char set utf8
-default collate utf8_general_ci;
 
 create table acessorios (
 		Cd_acessorio int not null auto_increment,
@@ -122,44 +119,3 @@ CREATE TABLE Venda (
 
 );
 
-alter table cadastro
-add foreign key (sexo) references publico(Publicotipo);
-
-describe cadastro;
-
-alter table acessorios
-add foreign key (publico) references publico(Publicotipo);
-
-describe acessorios;
-
-
-alter table acessorios
-add foreign key(marca) references marca(Marca);
-describe acessorios;
-
-
- alter table itemvenda
- add foreign key (Itm_codigo) references grupo(Cd_grupo);
-
-alter table roupas
-add foreign key(moda) references moda(Moda),
-add foreign key(marca) references marca(Marca),
-add foreign key(Cd_publicotipo) references publico(Publicotipo),
-add foreign key(Tamanho) references tamanho(Tamanho);
-
-
-alter table venda
-add foreign key(Vd_codigo) references itemvenda(Itm_codigo);
-
-describe venda;
-
-insert into cadastro
-(Nome, Sexo, Estado, Cidade, Endereço, Celular, Email, Senha)
-values
-('Rosa Soraia', 'Masculino' 'São Paulo','Cajamar','Treze de Maio', '11-93232-2323', 'rsoraia@oul.com','123456');
-
-insert into cadastro 
-(Nome, Sexo, Estado, Cidade, Endereço, Celular, Email, Senha)
-VALUES 
-('Emily Kauane da Cruz', 'Feminino', 'São Paulo', 'Diadema', 'Regente Feijó  6127 Centro', '11-98871-9923','ekauane@lojavirtual.com.br','221011'),
-('Davi Jurandir', 'Masculino', 'Rio de Janeiro', 'Rio de Janeiro', 'Bonifacio Melo 234 Jardins', '11-98334-9223','djurandir@lojavirtual.com.br','221200');

@@ -1,5 +1,5 @@
 <?php
-define('HOST', '127.0.0.1');
+define('HOST', '127.0.0.1:3325');
 define('USUARIO', 'root');
 define('SENHA', '');
 define('DB', 'loja');
