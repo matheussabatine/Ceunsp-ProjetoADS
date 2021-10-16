@@ -85,7 +85,6 @@ div.quantity input{
                 </ul>
             </li>
 
-            <li><a href="#"><i class='bx bx-diamond'></i> Acessórios</a></li>
             <li><a href="#" data-bs-toggle="modal" data-bs-target="#contaModal"><i class='bx bxs-user'></i> Conta</a></li>
             <li><a href="#" data-bs-toggle="modal" data-bs-target="#carrinhoModal"><i class='bx bxs-cart'></i> Carrinho</a></li>
         </ul>
@@ -160,64 +159,6 @@ div.quantity input{
 
     </div>
 
-    <!--filtros de busca ACESSÓRIOS-->
-
-    <!-- 
-    <div style="text-align: center;" id="categorias">
-
-      <h1>Selecione uma categoria</h1>
-
-      <div style="background-color: white;" class="btn-group btn-group-lg" role="group" aria-label="Basic radio toggle button group">
-        <input type="radio" class="btn-check" name="btnradio_acessorios" id="btnradio_aneis" autocomplete="off" checked>
-        <label class="btn btn-outline-dark" for="btnradio_aneis">ANÉIS</label>
-
-        <input type="radio" class="btn-check" name="btnradio_acessorios" id="btnradio_pulseiras" autocomplete="off">
-        <label class="btn btn-outline-dark" for="btnradio_pulseiras">PULSEIRAS</label>
-
-        <input type="radio" class="btn-check" name="btnradio_acessorios" id="btnradio_colares" autocomplete="off">
-        <label class="btn btn-outline-dark" for="btnradio_colares">COLARES</label>
-      </div>
-
-    </div>
-
-      
-    <div class="container mt-5">
-      
-      <div class="row justify-content-center">
-
-        <div class="col-md-3 text-center"></div>
-
-        <div class="col-md-3 text-center">
-          <h4>Filtro</h4>
-          <select class="form-select" aria-label="Default select example">
-            <option value="1" selected>Menor Preço</option>
-            <option value="2">Maior Preço</option>
-          </select>
-        </div>
-
-        <div class="col-md-3 text-center">
-          <h4>Marcas</h4>
-          <select class="form-select" aria-label="Default select example">
-            <option selected>Todas</option>
-            <option value="1">Mari Joias</option>
-            <option value="2">Toby Joias</option>
-            <option value="3">Joias Foleadas</option>
-          </select>
-        </div>
-        
-      </div>
-
-      <div class="row justify-content-end">
-        <div class="col-md-9 text-center">
-          <br>
-          <button type="button" class="btn btn-dark btn-lg">Buscar</button>
-        </div>
-      </div>
-
-    </div>
-    -->
-    
-
   <!--Layout dos produtos-->
 
 
@@ -235,7 +176,7 @@ div.quantity input{
         <ul class="list-group list-group-flush">
           <li class="list-group-item">TAMANHO: M</li>
           <li class="list-group-item">
-            <button type="button" data-bs-toggle="modal" data-bs-target="#produtoModal" class="btn btn-primary">+ Detalhes</button>
+            <button onclick="Resetar()" type="button" data-bs-toggle="modal" data-bs-target="#produtoModal" class="btn btn-primary">+ Detalhes</button>
           </li>
         </ul>
       </div>
@@ -251,7 +192,7 @@ div.quantity input{
         <ul class="list-group list-group-flush">
           <li class="list-group-item">TAMANHO: M</li>
           <li class="list-group-item">
-            <button type="button" data-bs-toggle="modal" data-bs-target="#produtoModal" class="btn btn-primary">+ Detalhes</button>
+            <button onclick="Resetar()" type="button" data-bs-toggle="modal" data-bs-target="#produtoModal" class="btn btn-primary">+ Detalhes</button>
           </li>
         </ul>
       </div>
@@ -267,7 +208,7 @@ div.quantity input{
         <ul class="list-group list-group-flush">
           <li class="list-group-item">TAMANHO: M</li>
           <li class="list-group-item">
-            <button type="button" data-bs-toggle="modal" data-bs-target="#produtoModal" class="btn btn-primary">+ Detalhes</button>
+            <button onclick="Resetar()" type="button" data-bs-toggle="modal" data-bs-target="#produtoModal" class="btn btn-primary">+ Detalhes</button>
           </li>
         </ul>
       </div>
@@ -283,7 +224,7 @@ div.quantity input{
         <ul class="list-group list-group-flush">
           <li class="list-group-item">TAMANHO: M</li>
           <li class="list-group-item">
-            <button type="button" data-bs-toggle="modal" data-bs-target="#produtoModal" class="btn btn-primary">+ Detalhes</button>
+            <button onclick="Resetar()" type="button" data-bs-toggle="modal" data-bs-target="#produtoModal" class="btn btn-primary">+ Detalhes</button>
           </li>
         </ul>
       </div>
@@ -299,7 +240,7 @@ div.quantity input{
         <ul class="list-group list-group-flush">
           <li class="list-group-item">TAMANHO: M</li>
           <li class="list-group-item">
-            <button type="button" data-bs-toggle="modal" data-bs-target="#produtoModal" class="btn btn-primary">+ Detalhes</button>
+            <button onclick="Resetar()" type="button" data-bs-toggle="modal" data-bs-target="#produtoModal" class="btn btn-primary">+ Detalhes</button>
           </li>
         </ul>
       </div>
@@ -315,7 +256,7 @@ div.quantity input{
         <ul class="list-group list-group-flush">
           <li class="list-group-item">TAMANHO: M</li>
           <li class="list-group-item">
-            <button type="button" data-bs-toggle="modal" data-bs-target="#produtoModal" class="btn btn-primary">+ Detalhes</button>
+            <button onclick="Resetar()" type="button" data-bs-toggle="modal" data-bs-target="#produtoModal" class="btn btn-primary">+ Detalhes</button>
           </li>
         </ul>
       </div>
@@ -513,6 +454,10 @@ div.quantity input{
     <!-- Script para botão de incremento -->
 
     <script>
+      // função para resetar valor para 1
+      function Resetar(){
+        document.getElementById("quantity").value = "1";
+      }
       //botao de incremento 
         //setting default attribute to disabled of minus button
         document.querySelector(".minus-btn").setAttribute("disabled", "disabled");
