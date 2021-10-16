@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php session_start();
+include('../CONECTOR/conexao.php');
+ ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -65,10 +67,10 @@ div.quantity input{
                 </a>
                 <!--pasta masculina-->
                 <ul class="moda-homem">
-                    <li><a href="#">Infantil</a></li>
-                    <li><a href="#">Jovem</a></li>
-                    <li><a href="#">Adulto</a></li>
-                    <li><a href="#">Plus Size</a></li>
+                    <li><a href="javascript:BuscarProdutos('masc infantil')">Infantil</a></li>
+                    <li><a href="javascript:BuscarProdutos('masc jovem')">Jovem</a></li>
+                    <li><a href="javascript:BuscarProdutos('masc adulto')">Adulto</a></li>
+                    <li><a href="javascript:BuscarProdutos('masc plus size')">Plus Size</a></li>
                 </ul>
             </li>
 
@@ -78,10 +80,10 @@ div.quantity input{
                 </a>
                 <!--pasta feminina-->
                 <ul class="moda-mulher">
-                    <li><a href="#">Infantil</a></li>
-                    <li><a href="#">Jovem</a></li>
-                    <li><a href="#">Adulto</a></li>
-                    <li><a href="#">Plus Size</a></li>
+                    <li><a href="javascript:BuscarProdutos('fem infantil')">Infantil</a></li>
+                    <li><a href="javascript:BuscarProdutos('fem jovem')">Jovem</a></li>
+                    <li><a href="javascript:BuscarProdutos('fem adulto')">Adulto</a></li>
+                    <li><a href="javascript:BuscarProdutos('fem plus size')">Plus Size</a></li>
                 </ul>
             </li>
 
@@ -99,6 +101,7 @@ div.quantity input{
     <div style="text-align: center;" id="categorias">
 
       <h1>Selecione uma categoria</h1>
+      <p id="modaclicada" style ="display: non;"></p>
 
       <div style="background-color: white;" class="btn-group btn-group-lg" role="group" aria-label="Basic radio toggle button group">
         <input type="radio" class="btn-check" name="btnradio_roupa" id="btnradio_camisas" autocomplete="off" checked>
@@ -164,87 +167,7 @@ div.quantity input{
 
   <div class="AreaProdutos">
 
-  <div class="row row-cols-1 row-cols-md-3 g-4">
-
-    <div class="col">
-      <div class="card">
-        <img src="../PLACEHOLDER/mar.jpg" class="img-thumbnail" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">R$ 34,99</h5>
-        </div>
-
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">TAMANHO: M</li>
-          <li class="list-group-item">
-            <button onclick="Resetar()" type="button" data-bs-toggle="modal" data-bs-target="#produtoModal" class="btn btn-primary">+ Detalhes</button>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card">
-        <img src="../PLACEHOLDER/mar.jpg" class="img-thumbnail" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">R$ 34,99</h5>
-        </div>
-
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">TAMANHO: M</li>
-          <li class="list-group-item">
-            <button onclick="Resetar()" type="button" data-bs-toggle="modal" data-bs-target="#produtoModal" class="btn btn-primary">+ Detalhes</button>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card">
-        <img src="../PLACEHOLDER/mar.jpg" class="img-thumbnail" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">R$ 34,99</h5>
-        </div>
-
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">TAMANHO: M</li>
-          <li class="list-group-item">
-            <button onclick="Resetar()" type="button" data-bs-toggle="modal" data-bs-target="#produtoModal" class="btn btn-primary">+ Detalhes</button>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card">
-        <img src="../PLACEHOLDER/mar.jpg" class="img-thumbnail" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">R$ 34,99</h5>
-        </div>
-
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">TAMANHO: M</li>
-          <li class="list-group-item">
-            <button onclick="Resetar()" type="button" data-bs-toggle="modal" data-bs-target="#produtoModal" class="btn btn-primary">+ Detalhes</button>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col">
-      <div class="card">
-        <img src="../PLACEHOLDER/mar.jpg" class="img-thumbnail" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">R$ 34,99</h5>
-        </div>
-
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">TAMANHO: M</li>
-          <li class="list-group-item">
-            <button onclick="Resetar()" type="button" data-bs-toggle="modal" data-bs-target="#produtoModal" class="btn btn-primary">+ Detalhes</button>
-          </li>
-        </ul>
-      </div>
-    </div>
+  <div id="produtos" class="row row-cols-1 row-cols-md-3 g-4">
 
     <div class="col">
       <div class="card">
@@ -454,9 +377,16 @@ div.quantity input{
     <!-- Script para botão de incremento -->
 
     <script>
+      //teste
+      function BuscarProdutos(tabela){
+        document.getElementById("produtos").innerHTML= "";
+        document.getElementById("modaclicada").innerHTML= tabela;
+        return;
+      }
       // função para resetar valor para 1
       function Resetar(){
         document.getElementById("quantity").value = "1";
+        return;
       }
       //botao de incremento 
         //setting default attribute to disabled of minus button
@@ -511,6 +441,10 @@ div.quantity input{
                 document.querySelector(".plus-btn").classList.remove("disabled")
             }
         })
+
+        // função para chamar produtos
+
+        // função de levar ao carrinho
     </script>
 
     <!-- Caminho para arquivo JavaScript -->
