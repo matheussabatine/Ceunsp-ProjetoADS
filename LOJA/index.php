@@ -1,5 +1,5 @@
 <?php session_start();
-include('../CONECTOR/conexao.php');
+include_once('../CONECTOR/conexao.php');
  ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -61,11 +61,11 @@ div.quantity input{
         <div class="text"><span class='bx bxs-t-shirt'></span> Brechó</div>
         <!--Items da sidebar-->
         <ul>
-            <li>
+            <!--parte cancelada<li>
                 <a href="#" class="pasta-homem"><i class='bx bx-male-sign'></i> Masculino
                     <span class='bx bxs-down-arrow seta-homem'></span>
                 </a>
-                <!--pasta masculina-->
+                pasta masculina
                 <ul class="moda-homem">
                     <li><a href="javascript:BuscarProdutos('masc infantil')">Infantil</a></li>
                     <li><a href="javascript:BuscarProdutos('masc jovem')">Jovem</a></li>
@@ -78,14 +78,14 @@ div.quantity input{
                 <a href="#" class="pasta-mulher"><i class='bx bx-female-sign'></i> Feminino
                     <span class='bx bxs-down-arrow seta-mulher'></span>
                 </a>
-                <!--pasta feminina-->
+                pasta feminina
                 <ul class="moda-mulher">
                     <li><a href="javascript:BuscarProdutos('fem infantil')">Infantil</a></li>
                     <li><a href="javascript:BuscarProdutos('fem jovem')">Jovem</a></li>
                     <li><a href="javascript:BuscarProdutos('fem adulto')">Adulto</a></li>
                     <li><a href="javascript:BuscarProdutos('fem plus size')">Plus Size</a></li>
                 </ul>
-            </li>
+            </li>-->
 
             <li><a href="#" data-bs-toggle="modal" data-bs-target="#contaModal"><i class='bx bxs-user'></i> Conta</a></li>
             <li><a href="#" data-bs-toggle="modal" data-bs-target="#carrinhoModal"><i class='bx bxs-cart'></i> Carrinho</a></li>
@@ -96,12 +96,13 @@ div.quantity input{
 
     <!--INÍCIO da vitrine-->
 
-    <!--filtros de busca ROUPAS-->
+    <!--filtros de busca ROUPAS
+    parte cancelada
 
-    <div style="text-align: center;" id="categorias">
+--><div style="text-align: center;" id="categorias">
 
-      <h1>Selecione uma categoria</h1>
-      <p id="modaclicada" style ="display: non;"></p>
+   <h1>PRODUTOS</h1>
+      <!--<p id="modaclicada" style ="display: non;"></p>
 
       <div style="background-color: white;" class="btn-group btn-group-lg" role="group" aria-label="Basic radio toggle button group">
         <input type="radio" class="btn-check" name="btnradio_roupa" id="btnradio_camisas" autocomplete="off" checked>
@@ -161,30 +162,50 @@ div.quantity input{
       </div>
 
     </div>
-
+           -->
   <!--Layout dos produtos-->
 
 
   <div class="AreaProdutos">
+    
 
-  <div id="produtos" class="row row-cols-1 row-cols-md-3 g-4">
+  <div id="produtos" class="row row-cols-1 row-cols-md-3 g-6">
 
-    <div class="col">
+  <?php  
+    $sql = "SELECT * FROM produto;";
+    $result = mysqli_query($conexao, $sql);
+    $resultCheck = mysqli_num_rows($result);
+
+    if ($resultCheck > 0){
+      while ($row = mysqli_fetch_assoc($result)){
+        ?>
+        
+        <div class="col">
       <div class="card">
-        <img src="../PLACEHOLDER/mar.jpg" class="img-thumbnail" alt="...">
+        <img src="<?php echo $row['imagem'] ?>" class="img-thumbnail" alt="...">
         <div class="card-body">
-          <h5 class="card-title">R$ 34,99</h5>
+          <h5 class="card-title">R$ <?php echo $row['preco'] ?></h5>
         </div>
 
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">TAMANHO: M</li>
+          <li class="list-group-item"><?php echo $row['produtonome'] ?></li>
+          <li class="list-group-item"> <?php echo $row['produtotamanho'] ?></li>
           <li class="list-group-item">
-            <button onclick="Resetar()" type="button" data-bs-toggle="modal" data-bs-target="#produtoModal" class="btn btn-primary">+ Detalhes</button>
+          <div class="quantity">
+            <input type="text" id="quantity" value="1">
+          </div>
+          </li>
+          <li class="list-group-item">
+            <input type="submit" name="add_to_cart" style="margin-top: 5px;" class="btn btn-success" value="Adicionar ao carrinho"/>
           </li>
         </ul>
       </div>
     </div>
-
+    <?php
+      }
+    }
+  ?>
+    
   </div>
 
   </div>
@@ -232,7 +253,7 @@ div.quantity input{
   </div>
 
 
-  <!-- Modal Produto -->
+  <!--PARTE CANCELADA Modal Produto 
   <div class="modal fade" id="produtoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -244,11 +265,11 @@ div.quantity input{
 
         <div class="modal-body">
 
-          <!--FOTO DO PRODUTO-->
-          <img src="../PLACEHOLDER/mar.jpg" class="rounded mx-auto d-block" alt="...">
+          FOTO DO PRODUTO
+          <img src="../PLACEHOLDER/camisa azul.jpg" class="rounded mx-auto d-block" alt="...">
           <br>
 
-          <!--TABELA DADOS DO PRODUTO-->
+          TABELA DADOS DO PRODUTO
     <table class="table table-warning table-striped table-bordered">
       <thead>
         <tr>
@@ -268,7 +289,7 @@ div.quantity input{
           <td>Roupa Masc. Adulto</td>
           <td>P</td>
           <td>Lacoste</td>
-          <td>12</td>
+          parte cancelada<td>12</td>
           <td>R$ 95,00</td>
         </tr>
         
@@ -288,7 +309,7 @@ div.quantity input{
 
       </div>
     </div>
-  </div>
+  </div> -->
 
 
 
@@ -377,8 +398,8 @@ div.quantity input{
     <!-- Script para botão de incremento -->
 
     <script>
-      //teste
-      function BuscarProdutos(tabela){
+      //parte cancelada
+      /*function BuscarProdutos(tabela){
         document.getElementById("produtos").innerHTML= "";
         document.getElementById("modaclicada").innerHTML= tabela;
         return;
@@ -440,11 +461,8 @@ div.quantity input{
                 document.querySelector(".plus-btn").removeAttribute("disabled");
                 document.querySelector(".plus-btn").classList.remove("disabled")
             }
-        })
+        })*/
 
-        // função para chamar produtos
-
-        // função de levar ao carrinho
     </script>
 
     <!-- Caminho para arquivo JavaScript -->
