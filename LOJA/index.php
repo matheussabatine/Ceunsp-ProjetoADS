@@ -1,4 +1,5 @@
-<?php session_start();
+<?php 
+session_start();
 include_once('../CONECTOR/conexao.php');
  ?>
 <!DOCTYPE html>
@@ -61,32 +62,6 @@ div.quantity input{
         <div class="text"><span class='bx bxs-t-shirt'></span> Brechó</div>
         <!--Items da sidebar-->
         <ul>
-            <!--parte cancelada<li>
-                <a href="#" class="pasta-homem"><i class='bx bx-male-sign'></i> Masculino
-                    <span class='bx bxs-down-arrow seta-homem'></span>
-                </a>
-                pasta masculina
-                <ul class="moda-homem">
-                    <li><a href="javascript:BuscarProdutos('masc infantil')">Infantil</a></li>
-                    <li><a href="javascript:BuscarProdutos('masc jovem')">Jovem</a></li>
-                    <li><a href="javascript:BuscarProdutos('masc adulto')">Adulto</a></li>
-                    <li><a href="javascript:BuscarProdutos('masc plus size')">Plus Size</a></li>
-                </ul>
-            </li>
-
-            <li>
-                <a href="#" class="pasta-mulher"><i class='bx bx-female-sign'></i> Feminino
-                    <span class='bx bxs-down-arrow seta-mulher'></span>
-                </a>
-                pasta feminina
-                <ul class="moda-mulher">
-                    <li><a href="javascript:BuscarProdutos('fem infantil')">Infantil</a></li>
-                    <li><a href="javascript:BuscarProdutos('fem jovem')">Jovem</a></li>
-                    <li><a href="javascript:BuscarProdutos('fem adulto')">Adulto</a></li>
-                    <li><a href="javascript:BuscarProdutos('fem plus size')">Plus Size</a></li>
-                </ul>
-            </li>-->
-
             <li><a href="#" data-bs-toggle="modal" data-bs-target="#contaModal"><i class='bx bxs-user'></i> Conta</a></li>
             <li><a href="#" data-bs-toggle="modal" data-bs-target="#carrinhoModal"><i class='bx bxs-cart'></i> Carrinho</a></li>
         </ul>
@@ -102,67 +77,7 @@ div.quantity input{
 --><div style="text-align: center;" id="categorias">
 
    <h1>PRODUTOS</h1>
-      <!--<p id="modaclicada" style ="display: non;"></p>
-
-      <div style="background-color: white;" class="btn-group btn-group-lg" role="group" aria-label="Basic radio toggle button group">
-        <input type="radio" class="btn-check" name="btnradio_roupa" id="btnradio_camisas" autocomplete="off" checked>
-        <label class="btn btn-outline-dark" for="btnradio_camisas">CAMISAS</label>
-
-        <input type="radio" class="btn-check" name="btnradio_roupa" id="btnradio_blusas" autocomplete="off">
-        <label class="btn btn-outline-dark" for="btnradio_blusas">BLUSAS</label>
-
-        <input type="radio" class="btn-check" name="btnradio_roupa" id="btnradio_calcas" autocomplete="off">
-        <label class="btn btn-outline-dark" for="btnradio_calcas">CALÇAS</label>
-
-        <input type="radio" class="btn-check" name="btnradio_roupa" id="btnradio_shorts" autocomplete="off">
-        <label class="btn btn-outline-dark" for="btnradio_shorts">SHORTS</label>
-      </div>
-
-    </div>
-
-    <div class="container mt-5">
-      
-      <div class="row justify-content-end">
-
-        <div class="col-md-3 text-center">
-          <h4>Filtro</h4>
-          <select class="form-select" aria-label="Default select example">
-            <option value="1" selected>Menor Preço</option>
-            <option value="2">Maior Preço</option>
-          </select>
-        </div>
-
-        <div class="col-md-3 text-center">
-          <h4>Marcas</h4>
-          <select class="form-select" aria-label="Default select example">
-            <option selected>Todas</option>
-            <option value="1">Levi´s</option>
-            <option value="2">Lacoste</option>
-            <option value="3">Polo Wear</option>
-          </select>
-        </div>
-
-        <div class="col-md-3 text-center">
-          <h4>Tamanhos</h4>
-          <select class="form-select" aria-label="Default select example">
-            <option selected>Todos</option>
-            <option value="1">P</option>
-            <option value="2">M</option>
-            <option value="3">G</option>
-          </select>
-        </div>
-        
-      </div>
-
-      <div class="row justify-content-end">
-        <div class="col-md-9 text-center">
-          <br>
-          <button type="button" class="btn btn-dark btn-lg">Buscar</button>
-        </div>
-      </div>
-
-    </div>
-           -->
+     
   <!--Layout dos produtos-->
 
 
@@ -182,21 +97,26 @@ div.quantity input{
         
         <div class="col">
       <div class="card">
-        <img src="<?php echo $row['imagem'] ?>" class="img-thumbnail" alt="...">
+        <img src="../PLACEHOLDER/<?php echo $row['imagem'] ?>" class="img-thumbnail" alt="...">
         <div class="card-body">
           <h5 class="card-title">R$ <?php echo $row['preco'] ?></h5>
         </div>
 
         <ul class="list-group list-group-flush">
           <li class="list-group-item"><?php echo $row['produtonome'] ?></li>
-          <li class="list-group-item"> <?php echo $row['produtotamanho'] ?></li>
+          <li class="list-group-item"><?php echo $row['produtotamanho'] ?></li>
           <li class="list-group-item">
           <div class="quantity">
-            <input type="text" id="quantity" value="1">
+            <!--<button class="btn minus-btn disabled" type="button">-</button>-->
+            <input name="contador" type="text" id="quantity<?php echo $row['id'] ?>" value='1'>
+            <!--<button class="btn plus-btn" type="button">+</button>-->
           </div>
           </li>
           <li class="list-group-item">
-            <input type="submit" name="add_to_cart" style="margin-top: 5px;" class="btn btn-success" value="Adicionar ao carrinho"/>
+            <input type="hidden" id="name<?php echo $row['id'] ?>" value='<?php echo $row['produtonome'] ?>'>
+            <input type="hidden" id="size<?php echo $row['id'] ?>" value='<?php echo $row['produtotamanho'] ?>'>
+            <input type="hidden" id="price<?php echo $row['id'] ?>" value='<?php echo $row['preco'] ?>'>
+            <button onclick="Alertar()" class="ADD btn btn-success" data-id="<?php echo $row['id'] ?>">Adcionar ao Carrinho</button>
           </li>
         </ul>
       </div>
@@ -252,69 +172,6 @@ div.quantity input{
     </div>
   </div>
 
-
-  <!--PARTE CANCELADA Modal Produto 
-  <div class="modal fade" id="produtoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">PRODUTO</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-
-        <div class="modal-body">
-
-          FOTO DO PRODUTO
-          <img src="../PLACEHOLDER/camisa azul.jpg" class="rounded mx-auto d-block" alt="...">
-          <br>
-
-          TABELA DADOS DO PRODUTO
-    <table class="table table-warning table-striped table-bordered">
-      <thead>
-        <tr>
-          <th scope="col">Nome</th>
-          <th scope="col">Cor</th>
-          <th scope="col">Categoria</th>
-          <th scope="col">Tamanho</th>
-          <th scope="col">Marca</th>
-          <th scope="col">Estoque</th>
-          <th scope="col">Preço</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">camisa</th>
-          <td>Amarelo</td>
-          <td>Roupa Masc. Adulto</td>
-          <td>P</td>
-          <td>Lacoste</td>
-          parte cancelada<td>12</td>
-          <td>R$ 95,00</td>
-        </tr>
-        
-      </tbody>
-    </table>
-        </div>
-
-        <div class="modal-footer">
-          <div class="quantity">
-            <button class="btn minus-btn disabled" type="button">-</button>
-            <input type="text" id="quantity" value="1">
-            <button class="btn plus-btn" type="button">+</button>
-          </div>
-<p>TOTAL R$ </p>
-          <button type="button" class="btn btn-primary">+ Adicionar ao Carrinho</button>
-        </div>
-
-      </div>
-    </div>
-  </div> -->
-
-
-
-
-
   <!-- Modal Carrinho -->
   <div class="modal fade" id="carrinhoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
@@ -325,59 +182,44 @@ div.quantity input{
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 
-        <div class="modal-body">
-          <!--TABELA PARA O CARRINHO-->
-    <table class="table table-warning table-striped table-bordered">
-      <thead>
-        <tr>
-          <th scope="col">Nome</th>
-          <th scope="col">Cor</th>
-          <th scope="col">Categoria</th>
-          <th scope="col">Tamanho</th>
-          <th scope="col">Marca</th>
-          <th scope="col">Quant.</th>
-          <th scope="col">Preço</th>
-          <th scope="col">Opções</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">camisa</th>
-          <td>Amarelo</td>
-          <td>Roupa Masc. Adulto</td>
-          <td>P</td>
-          <td>Lacoste</td>
-          <td>3</td>
-          <td>R$ 285,00</td>
-          <td><button type="button" class="btn btn-danger">Remover</button></td>
-        </tr>
-        <tr>
-          <th scope="row">moletom</th>
-          <td>Azul</td>
-          <td>Roupa Femi. Plus Size</td>
-          <td>GGG</td>
-          <td>Levi's</td>
-          <td>1</td>
-          <td>R$ 35,00</td>
-          <td><button type="button" class="btn btn-danger">Remover</button></td>
-        </tr>
-        <tr>
-          <th scope="row">jeans</th>
-          <td>marrom</td>
-          <td>Roupa Masc.  Infantil</td>
-          <td>M</td>
-          <td>Calvin Klein</td>
-          <td>1</td>
-          <td>R$ 150,00</td>
-          <td><button type="button" class="btn btn-danger">Remover</button></td>
-        </tr>
-      </tbody>
-    </table>
+        <!--TABELA CARRINHO-->
+        <div id="displayCheckout" class="modal-body">
+
+        <?php
+
+        if(!empty($_SESSION['cart'])){
+          $outputTable = '';
+          $total = 0;
+          $outputTable .="<table class='table table-warning table-striped table-bordered'>
+          <thead>
+            <tr>
+              <th scope='col'>Nome</th>
+              <th scope='col'>Tamanho</th>
+              <th scope='col'>Preço</th>
+              <th scope='col'>Quantidade</th>
+              <th scope='col'>Opções</th>
+            </tr>
+          </thead>";
+          foreach($_SESSION['cart'] as $key => $value){
+              $outputTable .= "<tr>
+              <td>".$value['p_name']."</td>
+              <td>".$value['p_size']."</td>
+              <td>R$ ".($value['p_price'] * $value['p_quantity'])."</td>
+              <td>".$value['p_quantity']."</td>
+              <td><button id=".$value['p_id']." type='button' class='btn btn-danger delete'>Remover</button></td>
+            </tr>";
+            $total = $total + ($value['p_price'] * $value['p_quantity']);
+          }
+          $outputTable .= "</table>";
+          $outputTable .= "<div class='text-center'><b>Total: R$ ".$total."</b></div>";
+          echo $outputTable;
+        }
+        ?>
+    
         </div>
 
         <div class="modal-footer">
-          <p>TOTAL: R$470,00</p>
-          <!-- Example single danger button -->
+  
           <div class="btn-group">
             <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
               <i class='bx bx-dollar'></i> Pagar
@@ -398,18 +240,86 @@ div.quantity input{
     <!-- Script para botão de incremento -->
 
     <script>
-      //parte cancelada
-      /*function BuscarProdutos(tabela){
-        document.getElementById("produtos").innerHTML= "";
-        document.getElementById("modaclicada").innerHTML= tabela;
-        return;
+      function Alertar(){
+        alert("Adicionado ao Carrinho !");
       }
-      // função para resetar valor para 1
-      function Resetar(){
-        document.getElementById("quantity").value = "1";
-        return;
-      }
-      //botao de incremento 
+
+
+
+      $(document).ready(function(){
+        alldeleteBtn = document.querySelectorAll('.delete')
+        alldeleteBtn.forEach(onebyone => {
+          onebyone.addEventListener('click',deleteINsession)
+        })
+
+        function deleteINsession(){
+            removable_id = this.id;
+            $.ajax({
+              url: 'cart.php',
+              method: 'POST',
+              dataType: 'json',
+              data:{
+                    id_to_remove:removable_id,
+                    action : 'remove'
+              }, 
+              success:function(data){
+                      $('#displayCheckout').html(data);
+                      alldeleteBtn = document.querySelectorAll('.delete')
+                      alldeleteBtn.forEach(onebyone => {
+                      onebyone.addEventListener('click',deleteINsession)
+        })
+                    }
+            }).fail( function(xhr, textStatus, errorThrown) {
+                alert(xhr.responseText);
+            });
+        }
+
+
+        $('.ADD').click(function(){
+          id = $(this).data('id');
+          name = $('#name' + id).val()
+          size = $('#size' + id).val()
+          price = $('#price' + id).val()
+          quantity = $('#quantity' + id).val()  
+            $.ajax({
+              url: 'cart.php',
+              method: 'POST',
+              dataType: 'json',
+              data:{
+                    cart_id : id,
+                    cart_name : name,
+                    cart_size : size,
+                    cart_price : price,
+                    cart_quantity : quantity,
+                    action : 'add',
+              }, 
+              success:function(data){
+                      $('#displayCheckout').html(data)
+                      alldeleteBtn = document.querySelectorAll('.delete')
+                      alldeleteBtn.forEach(onebyone => {
+                      onebyone.addEventListener('click',deleteINsession)
+        })
+                    }
+            }).fail( function(xhr, textStatus, errorThrown) {
+                alert(xhr.responseText);
+            });
+
+
+          console.log("name: "+name)
+          console.log("size: "+size)
+          console.log("price: "+price)
+          console.log("quantity: "+quantity)
+        })
+      })
+
+
+
+
+
+
+
+     /*
+        //botao de incremento 
         //setting default attribute to disabled of minus button
         document.querySelector(".minus-btn").setAttribute("disabled", "disabled");
         //taking value to increment decrement input value
@@ -421,7 +331,7 @@ div.quantity input{
         document.querySelector(".plus-btn").addEventListener("click", function()
         {
             //getting value of input
-            valueCount = document.getElementById("quantity").value;
+            valueCount = document.getElementByName("quantity").value;
             // definindo um estoque
             estoque = 13
 
@@ -429,7 +339,7 @@ div.quantity input{
             valueCount++;
 
             //setting increment input value
-            document.getElementById("quantity").value = valueCount
+            document.getElementByName("quantity").value = valueCount
 
             if (valueCount > 1){
                 document.querySelector(".minus-btn").removeAttribute("disabled");
@@ -445,13 +355,13 @@ div.quantity input{
         document.querySelector(".minus-btn").addEventListener("click", function()
         {
             //getting value of input
-            valueCount = document.getElementById("quantity").value;
+            valueCount = document.getElementByName("quantity").value;
 
             //input value decrement by 1
             valueCount--;
 
             //setting increment input value
-            document.getElementById("quantity").value = valueCount
+            document.getElementByName("quantity").value = valueCount
 
             if (valueCount == 1){
                 document.querySelector(".minus-btn").setAttribute("disabled", "disabled")
@@ -461,7 +371,8 @@ div.quantity input{
                 document.querySelector(".plus-btn").removeAttribute("disabled");
                 document.querySelector(".plus-btn").classList.remove("disabled")
             }
-        })*/
+        })
+        */
 
     </script>
 
@@ -473,3 +384,7 @@ div.quantity input{
     
 </body>
 </html>
+
+<?php
+mysqli_close($conexao);
+?>
