@@ -54,7 +54,7 @@ session_start();
     if(!empty($_SESSION['cart'])){
         $outputTable = '';
         $total = 0;
-        $outputTable .="<table class='table table-warning table-striped table-bordered'>
+        $outputTable .="<table id='carrinho' class='table table-warning table-striped table-bordered'>
         <thead>
           <tr>
             <th scope='col'>Nome</th>

@@ -152,13 +152,15 @@ div.quantity input{
                 <th scope="col">Endereço de Entrega</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <?php if(isset($_SESSION['email'])): ?>
-                <th><?php echo $_SESSION['nome']; ?></th>
-                <td><?php echo $_SESSION['email']; ?></td>
-                <td><?php echo $_SESSION['endereco']; endif;?></td>
-              </tr>
+            <tbody id='tabela_conta'>
+                <?php if(isset($_SESSION['email'])){
+              echo "<tr id='conta_conectada'>
+                <th>".$_SESSION['nome']."</th>
+                <td>".$_SESSION['email']."</td>
+                <td>".$_SESSION['endereco']."</td>
+              </tr>";
+                }
+              ?>
             </tbody>
           </table>
         </div>
@@ -190,7 +192,7 @@ div.quantity input{
         if(!empty($_SESSION['cart'])){
           $outputTable = '';
           $total = 0;
-          $outputTable .="<table class='table table-warning table-striped table-bordered'>
+          $outputTable .="<table id='carrinho' class='table table-warning table-striped table-bordered'>
           <thead>
             <tr>
               <th scope='col'>Nome</th>
@@ -225,9 +227,9 @@ div.quantity input{
               <i class='bx bx-dollar'></i> Pagar
             </button>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#"><i class='bx bx-credit-card'></i> Cartão de Crédito</a></li>
+              <li><button onclick="Pagar()"><a class="dropdown-item"><i class='bx bx-credit-card'></i> Cartão de Crédito</a></button></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#"><i class='bx bx-credit-card-alt' ></i> Cartão de Débito</a></li>
+              <li><button onclick="Pagar()"><a class="dropdown-item"><i class='bx bx-credit-card-alt' ></i> Cartão de Débito</a></button></li>
             </ul>
           </div>
         </div>
@@ -236,10 +238,26 @@ div.quantity input{
     </div>
   </div>
 
-
-    <!-- Script para botão de incremento -->
-
     <script>
+      function Pagar(){
+        const pai_carrinho = document.getElementById("displayCheckout");
+        const filho_carrinho = pai_carrinho.querySelector("#carrinho");
+
+        const pai_conta = document.getElementById("tabela_conta");
+        const filho_conta = pai_conta.querySelector("#conta_conectada");
+
+        if (filho_carrinho == null) {
+          alert("Não há produtos no carrinho");
+        } else {
+          //alert("há registros");
+          if(filho_conta == null){
+            window.location.replace('../LOGIN/index.php');
+          } else {
+            alert("viva viva");
+
+          }
+        }
+      }
       function Alertar(){
         alert("Adicionado ao Carrinho !");
       }
