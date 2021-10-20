@@ -251,9 +251,11 @@ div.quantity input{
         } else {
           //alert("há registros");
           if(filho_conta == null){
+            //não há conta conectada, então leva para tela de login
             window.location.replace('../LOGIN/index.php');
           } else {
-            alert("viva viva");
+            //alert("validação completa");
+            window.location.replace('checkout.php');
 
           }
         }
