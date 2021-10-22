@@ -12,8 +12,9 @@ foreach ($vetor as $row => $value){
     $nome = mysqli_real_escape_string($conexao, $value["p_name"]);
     $preco = mysqli_real_escape_string($conexao, $value["p_price"]);
     $quantidade = mysqli_real_escape_string($conexao, $value["p_quantity"]);
+    $desconto = 0;
 
-    $sql = "INSERT INTO tb_itemvenda(pd_codigo, itm_qtde, itm_unitario, itm_total) VALUES('".$id."','".$quantidade."','".$preco."','".$preco * $quantidade."')";
+    $sql = "INSERT INTO tb_itemvenda(pd_codigo, itm_qtde, itm_unitario, itm_desconto) VALUES('".$id."','".$quantidade."','".$preco."','".$desconto."')";
     mysqli_query($conexao, $sql);
 }
 unset($_SESSION['cart']);
