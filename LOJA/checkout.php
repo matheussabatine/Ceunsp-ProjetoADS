@@ -5,7 +5,11 @@ include_once('../CONECTOR/conexao.php');
 $vetor = $_SESSION['cart'];
 
 //var_dump($_SESSION['cart']);
-print_r($vetor);
+//print_r($vetor);
+$email = $_SESSION['email'];
+    
+    $sql = "INSERT INTO tb_venda(Email, vd_data) VALUES('".$email."',now())";
+    mysqli_query($conexao, $sql);
 
 foreach ($vetor as $row => $value){
     $id = mysqli_real_escape_string($conexao, $value["p_id"]);
