@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3325
--- Tempo de geração: 21-Out-2021 às 18:24
+-- Tempo de geração: 23-Out-2021 às 20:59
 -- Versão do servidor: 10.4.21-MariaDB
 -- versão do PHP: 7.4.24
 
@@ -43,7 +43,8 @@ CREATE TABLE `cadastro` (
 --
 
 INSERT INTO `cadastro` (`Nome`, `Sexo`, `Estado`, `Cidade`, `Endereço`, `Celular`, `Email`, `Senha`) VALUES
-('hata hatão', 'Masculino', 'SP', 'grande salto', 'um endereço', '11234567890', 'hata@animal.com', 11),
+('Démerson Cruz', 'Masculino', 'AL', 'delta', 'casa', '11945237392', 'alguem@email.com', 111),
+('Eddy Pilantra', 'Masculino', 'RJ', 'interior', 'mistério', '11234567890', 'eddy@pilantra.com', 555),
 ('Lara Fernandes Chapéu', 'Feminino', 'AL', 'cidadelândia', 'casa qualquer', '11234567890', 'lara@email.com', 111),
 ('Matheus Sabatine Lima', 'Masculino', 'SP', 'salto', 'casa maravilhosa', '11234567890', 'matheussabatine1717@gmail.com', 111);
 
@@ -91,10 +92,10 @@ CREATE TABLE `tb_itemvenda` (
 --
 
 INSERT INTO `tb_itemvenda` (`vd_codigo`, `itm_codigo`, `pd_codigo`, `itm_qtde`, `itm_unitario`, `itm_desconto`) VALUES
-(NULL, 1, 2, 5, '20.00', NULL),
-(NULL, 2, 1, 1, '10.00', NULL),
-(NULL, 3, 3, 3, '30.00', NULL),
-(NULL, 4, 2, 2, '20.00', NULL);
+(30, 78, 2, 3, '20.00', '0.00'),
+(30, 79, 3, 3, '30.00', '0.00'),
+(31, 80, 1, 2, '10.00', '0.00'),
+(31, 81, 3, 1, '30.00', '0.00');
 
 -- --------------------------------------------------------
 
@@ -106,8 +107,16 @@ CREATE TABLE `tb_venda` (
   `vd_codigo` int(11) NOT NULL,
   `Email` varchar(60) NOT NULL,
   `vd_data` date DEFAULT NULL,
-  `vd_valor` decimal(10,0) DEFAULT NULL
+  `vd_valor` decimal(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `tb_venda`
+--
+
+INSERT INTO `tb_venda` (`vd_codigo`, `Email`, `vd_data`, `vd_valor`) VALUES
+(30, 'matheussabatine1717@gmail.com', '2021-10-23', '150.00'),
+(31, 'lara@email.com', '2021-10-23', '50.00');
 
 --
 -- Índices para tabelas despejadas
@@ -129,8 +138,7 @@ ALTER TABLE `produto`
 -- Índices para tabela `tb_itemvenda`
 --
 ALTER TABLE `tb_itemvenda`
-  ADD PRIMARY KEY (`itm_codigo`),
-  ADD KEY `vd_codigo` (`vd_codigo`);
+  ADD PRIMARY KEY (`itm_codigo`);
 
 --
 -- Índices para tabela `tb_venda`
@@ -153,30 +161,13 @@ ALTER TABLE `produto`
 -- AUTO_INCREMENT de tabela `tb_itemvenda`
 --
 ALTER TABLE `tb_itemvenda`
-  MODIFY `itm_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `itm_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT de tabela `tb_venda`
 --
 ALTER TABLE `tb_venda`
-  MODIFY `vd_codigo` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Restrições para despejos de tabelas
---
-
---
--- Limitadores para a tabela `tb_itemvenda`
---
-ALTER TABLE `tb_itemvenda`
-  ADD CONSTRAINT `tb_itemvenda_ibfk_1` FOREIGN KEY (`vd_codigo`) REFERENCES `tb_venda` (`vd_codigo`);
-
---
--- Limitadores para a tabela `tb_venda`
---
-ALTER TABLE `tb_venda`
-  ADD CONSTRAINT `tb_venda_ibfk_1` FOREIGN KEY (`Email`) REFERENCES `cadastro` (`Email`),
-  ADD CONSTRAINT `tb_venda_ibfk_2` FOREIGN KEY (`Email`) REFERENCES `cadastro` (`Email`);
+  MODIFY `vd_codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
