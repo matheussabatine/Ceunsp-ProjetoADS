@@ -3,8 +3,9 @@ Repositório criado para armazenar códigos relacionados com o projeto interdisc
 
 Olá leitor, aqui está as pastas com os códigos e o banco de dados
 
-OBS: estamos utilizando XAMPP, com Servidor local na porta 3325, caso haja interesse em alterar estas configurações, acesse : CONECTOR/conexao.php
-OBS: vc deve inserir manualmente o banco de dados no servidor
+||OBS: estamos utilizando XAMPP, com Servidor local na porta 3325, caso haja interesse em alterar estas configurações, acesse : CONECTOR/conexao.php
+||OBS: vc deve inserir manualmente o banco de dados no servidor
+||OBS: a documentação do projeto está em DOCUMENTAÇÃO(?óbvio?)
 
 DESIGN: MATHEUS SABATINE LIMA
 FRONT-END: MATHEUS SABATINE LIMA
