@@ -5,7 +5,7 @@ Olá leitor, aqui está as pastas com os códigos e o banco de dados
 Sobre: este projeto se trata de uma loja virtual de roupas, contendo: cadastro de contas, vizualização de produtos, sistema de carrinho, e armazenamento de compras concluídas 
 ||OBS: estamos utilizando XAMPP, com Servidor local na PORTA 3325, caso haja interesse em alterar estas configurações, acesse a pasta : CONECTOR/conexao.php
 ||OBS: vc deve inserir manualmente o banco de dados no servidor(utilizamos PHPmyAdmin)
-||OBS: a documentação do projeto está em DOCUMENTAÇÃO(?óbvio?)
+||OBS: a documentação do projeto está em DOCUMENTAÇÃO
 
 DESIGN: MATHEUS SABATINE LIMA
 DOCUMENTAÇÃO: MATHEUS SABATINE LIMA/DÉMERSON CRUZ/VICTOR BANDEIRA
