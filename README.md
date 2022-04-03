@@ -13,5 +13,4 @@ FRONT-END: MATHEUS SABATINE LIMA
 BACK-END: MATHEUS SABATINE LIMA
 BANCO DE DADOS: MATHEUS SABATINE LIMA/DÉMERSON CRUZ
 
-Este trabalho não saiu como planejado, enfim, algo tinha que ser entregue e saiu isso..., por mais que não seja os arquivos mais elaborados do mundo, eles são funcionais :)
-no futuro, com melhor planejamento e melhor COMPETÊNCIA DE SEUS MEMBROS, mundos serão conquistados! 
+ 
